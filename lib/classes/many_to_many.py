@@ -10,14 +10,14 @@ class Article:
         Article.all.append(self)
 
     #decorator for title
-    @property
+    @property 
     def title(self):
-        return self._title
+        return self._title 
 
     #setter validates if string is between 5 and 50 characters, and is only set once
     @title.setter
     def title(self, value):
-        if isinstance(value, str) and 5 <= len(value) <= 50 and not hasattr(self, 'title'):
+        if (isinstance(value, str) and 5 <= len(value) <= 50 and not hasattr(self, 'title')):
             self._title = value
 
     #decorator for author
@@ -40,11 +40,7 @@ class Article:
     @magazine.setter
     def magazine(self, value):
         if isinstance(value, Magazine):
-            self._magazine = value
-
-    #repr for Article
-    def __repr__(self):
-        return f'<Article author={self.author} magazine={self.magazine} title={self.title} /> ' 
+            self._magazine = value 
         
 class Author:
     #Author initialized with name
@@ -61,10 +57,6 @@ class Author:
     def name(self, value):
         if(isinstance(value, str) and len(value) > 0 and not hasattr(self, 'name')):
             self._name = value
-
-    #repr for Author
-    def __repr__(self): 
-        return f'<Author name={self.name} />'
 
     #Returns a list of written by an author
     def articles(self):
@@ -114,10 +106,6 @@ class Magazine:
     def category(self, value):
         if isinstance(value, str) and len(value) > 0:
             self._category = value
-
-    #repr for magazine
-    def __repr__(self):
-        return f'<Magazine name={self.name} category={self.category} />'
 
     #iterate over Article.all
     #Retrieves all articles associated with this magazine
